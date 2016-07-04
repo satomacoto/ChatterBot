@@ -37,7 +37,7 @@ class LevenshteinMatchAdapter(BaseMatchAdapter):
             return 1, input_statement
 
         # Get the closest matching statement from the database
-        closest_match, confidence = nlargest(1, [
+        confidence, closest_match = nlargest(1, [
             (StringMatcher(seq1=input_statement.text, seq2=text).ratio(), text)
             for text in text_of_all_statements
         ])[0]
