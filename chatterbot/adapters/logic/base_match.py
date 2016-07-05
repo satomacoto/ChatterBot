@@ -42,6 +42,8 @@ class BaseMatchAdapter(TieBreaking, LogicAdapter):
 
         # Select the closest match to the input statement
         confidence, closest_match = self.get(input_statement)
+        # TODO debug
+        print(confidence, closest_match)
 
         # Save any updates made to the statement by the logic adapter
         self.context.storage.update(closest_match)
